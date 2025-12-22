@@ -132,23 +132,23 @@ button:active {
   top: 0;
   left: 0;
   right: 0;
-  bottom: 0;
+  bottom: 0; /*this is what makes it take the entire body, NOT line 146!!!###*/
   z-index: 100; /* display on top */
   display: flex;
   align-items: center;
   justify-content: center;
   visibility: hidden; /*see line 151. default its just invisible. we only need to worry about adding this class when needed and removing it to make it invisible back again*/
-  transition: all 300ms ease;
-  opacity: 0;
+  transition: all 300ms ease; /* now transition is possible*/
+  opacity: 0; /* visibility: hidden and opacity: 0 makes it possible to animate it later using visible and 1 respectively. if we had done display: none, this element wouldn't exist in the DOM so you can't animate nothing.###*/
   transform: translate(100%);
 }
 
 .menu--open { /* this doesn't exist until js makes it exist. its a class on the BODY. menu--close is not a class. its just the close button btw. All we need to do is remove the menu--open class*/
   max-height: 100vh;
-  overflow: hidden;
-}
+  overflow: hidden; 
+} /* this is just to make it not scrollable and hide the scrollbar!!!###*/
 
-.menu--open .menu__backdrop { /* when menu--open class exists, as added my js then style menu__backdrop like so:-*/
+.menu--open .menu__backdrop { /* when menu--open class exists, as added by js:- then style menu__backdrop like so:-*/
   visibility: visible;
   opacity: 1;
   transform: translate(0);
@@ -409,7 +409,6 @@ footer {
   padding: 0 8px;
 }
 
-/* SMALL PHONES, TABLETS, LARGE SMARTPHONES */
 @media (max-width: 768px) {
   .header__description {
     padding: 0 24px;
@@ -432,11 +431,9 @@ footer {
   }
 }
 
-
-/* SMALL PHONES, LARGE SMARTPHONES */
 @media (max-width: 550px) {
   .btn__menu {
-    display: block; /* to show the hamburger */
+    display: block; /* to show the hamburger since the menu button itself was also invisible */
   }
 
   .nav__links {
