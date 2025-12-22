@@ -22,6 +22,8 @@ nav {
 
 img {
   width: 100%;
+  height: 100%;
+  max-height: 50vh;
 }
 
 p {
@@ -72,7 +74,7 @@ button:active {
   color: white;
   padding: 12px 24px;
   font-size: 20px;
-  border-radius: 4px;
+  border-radius: 10px;
   border: none;
 }
 
@@ -183,11 +185,11 @@ LANDING
 */
 
 #landing {
-  background-color: rgba(115, 66, 214, 0.1)
+  background-color: rgba(115, 66, 214, 0.1);
 }
 
 header {
-  height: calc(100vh - 80px);
+  height: calc(100vh - 80px); /*We want the entire landing section to take 100% of height, but we also account for navbar height*/
 }
 
 .header__container {
@@ -432,15 +434,15 @@ footer {
 /* SMALL PHONES, LARGE SMARTPHONES */
 @media (max-width: 550px) {
   .btn__menu {
-    display: block;
+    display: block; /* to show the hamburger */
   }
 
   .nav__links {
-    display: none;
+    display: none; /* to hide the links */
   }
 
   .highlight {
-    width: 100%;
+    width: 100%; /* so that each individual highlight takes up an entire row on smaller screens*/
   }
 
   .highlight:not(:last-child) {
