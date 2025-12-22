@@ -133,26 +133,28 @@ button:active {
   left: 0;
   right: 0;
   bottom: 0;
-  z-index: 100;
+  z-index: 100; /* display on top */
   display: flex;
   align-items: center;
   justify-content: center;
-  visibility: hidden;
+  visibility: hidden; /*see line 151. default its just invisible. we only need to worry about adding this class when needed and removing it to make it invisible back again*/
   transition: all 300ms ease;
   opacity: 0;
   transform: translate(100%);
 }
 
-.menu--open {
+.menu--open { /* this doesn't exist until js makes it exist. its a class on the BODY. menu--close is not a class. its just the close button btw. All we need to do is remove the menu--open class*/
   max-height: 100vh;
   overflow: hidden;
 }
 
-.menu--open .menu__backdrop {
+.menu--open .menu__backdrop { /* when menu--open class exists, as added my js then style menu__backdrop like so:-*/
   visibility: visible;
   opacity: 1;
   transform: translate(0);
 }
+
+/* so in short:- menu--open gives body a total height and when menu--open exists, we make menu--backdrop visible*/
 
 .menu__links {
   display: flex;
